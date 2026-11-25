@@ -41,7 +41,7 @@ cannot change the result, which keeps the search fast.
 ## Tests
 
 ```bash
-python3 -m unittest test_ai.py
+python3 -m unittest
 ```
 
 The test suite plays every possible opponent strategy against the AI and checks
