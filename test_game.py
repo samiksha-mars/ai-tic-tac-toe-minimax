@@ -26,6 +26,12 @@ class AskMoveTest(unittest.TestCase):
         self.assertEqual(move, 1)
         self.assertEqual(out.getvalue().count("Invalid move"), 5)
 
+    def test_rejects_digit_like_characters_int_cannot_parse(self):
+        out = StringIO()
+        with redirect_stdout(out):
+            self.assertEqual(ask_move(new_board(), scripted("²", "3")), 2)
+        self.assertIn("Invalid move", out.getvalue())
+
 
 class PlayTest(unittest.TestCase):
     """The human always picks the lowest-numbered cell; occupied cells are re-prompted."""

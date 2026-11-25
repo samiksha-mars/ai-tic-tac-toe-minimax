@@ -9,7 +9,7 @@ from board import EMPTY, is_over, new_board, other, render, winner
 def ask_move(board, input_fn=input):
     while True:
         raw = input_fn("Your move (1-9): ").strip()
-        if raw.isdigit() and 1 <= int(raw) <= 9 and board[int(raw) - 1] == EMPTY:
+        if raw.isdecimal() and 1 <= int(raw) <= 9 and board[int(raw) - 1] == EMPTY:
             return int(raw) - 1
         print("Invalid move, pick an empty cell number from 1 to 9.")
 
